@@ -1,2 +1,6 @@
 <h1>HOLA MUNDO EN ANGULAR</h1>
-<app-hijo/>
+
+<app-hijo [recibeHijo]="mensajePadre" (mensajeDesdeHijo)="recibirMensaje($event)" />
+
+
+<h5>El mensaje recibido desde el hijo es: {{ reciboMensaje }}</h5>
