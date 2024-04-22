@@ -6,6 +6,7 @@
 <h5>El mensaje recibido desde el hijo es: {{ reciboMensaje }}</h5> -->
 
 
-<h1 appEstiloHermanos>{{ nombre }}</h1>
+<h1 appEstiloHermanos>{{ nombre | miPipePersonalizado }}</h1>
+<h2>Fecha de hoy: {{ fecha | date:'dd/MM/yyyy' }}</h2>
 <button type="button" (click)="saludar()">Saludar</button>
 <button type="button" (click)="preguntar()">Preguntar por hijo</button>

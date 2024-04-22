@@ -8,6 +8,7 @@ import { ServicioFamiliarService } from '../servicio-familiar.service';
 })
 export class PadreComponent implements OnInit{
   nombre?: string;
+  fecha?: Date = new Date();
   
   // Primer forma para 'injectar' un componente, con el constructor
   constructor(private _servicioFamiliar: ServicioFamiliarService) {
