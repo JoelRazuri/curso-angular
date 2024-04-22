@@ -7,13 +7,15 @@ import { PadreComponent } from './padre/padre.component';
 import { HijoComponent } from './hijo/hijo.component';
 import { ContadorComponent } from './contador/contador.component';
 import { FormsModule } from '@angular/forms';
+import { HermanoComponent } from './hermano/hermano.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PadreComponent,
     HijoComponent,
-    ContadorComponent
+    ContadorComponent,
+    HermanoComponent
   ],
   imports: [
     BrowserModule,
