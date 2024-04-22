@@ -1,16 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { ServicioFamiliarService } from '../servicio-familiar.service';
 
 @Component({
   selector: 'app-padre',
   templateUrl: './padre.component.html',
   styleUrls: ['./padre.component.css']
 })
-export class PadreComponent {
-  mensajePadre = 'Mensaje desde el padre :D';
+export class PadreComponent implements OnInit{
+  nombre?: string;
+  
+  // Primer forma para 'injectar' un componente, con el constructor
+  constructor(private _servicioFamiliar: ServicioFamiliarService) {
 
-  reciboMensaje: string = '';
-
-  recibirMensaje($event: string) {
-    this.reciboMensaje = $event;
   }
+
+  // Otra forma es usando la palabra reservada 'inject'
+  private _servicioFamiliar2 = inject(ServicioFamiliarService);
+  // Hay que reemplazar '_servicioFamiliar' por '_servicioFamiliar2'
+
+  ngOnInit(): void {
+    this._servicioFamiliar.setHermanoGrande('Juan');
+    this.nombre = this._servicioFamiliar.getHermanoGrande();
+  }
+
+  saludar() {
+    this._servicioFamiliar.saludar(this._servicioFamiliar.getHermanoPequeno() || ``);
+  }
+
+  preguntar() {
+    console.log(this._servicioFamiliar.preguntarPorHijo());
+  }
+
+
+
+  // mensajePadre = 'Mensaje desde el padre :D';
+
+  // reciboMensaje: string = '';
+
+  // recibirMensaje($event: string) {
+  //   this.reciboMensaje = $event;
+  // }
 }
