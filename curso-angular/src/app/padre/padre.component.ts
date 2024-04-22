@@ -19,7 +19,7 @@ export class PadreComponent implements OnInit{
   // Hay que reemplazar '_servicioFamiliar' por '_servicioFamiliar2'
 
   ngOnInit(): void {
-    this._servicioFamiliar.setHermanoGrande('Juan');
+    this._servicioFamiliar.setHermanoGrande('juan');
     this.nombre = this._servicioFamiliar.getHermanoGrande();
   }
 

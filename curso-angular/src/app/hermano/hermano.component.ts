@@ -14,7 +14,7 @@ export class HermanoComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this._servicioFamiliar.setHermanoPequeno('Pedro');
+    this._servicioFamiliar.setHermanoPequeno('pedro');
     this.nombre = this._servicioFamiliar.getHermanoPequeno();
   }
 
