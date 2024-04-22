@@ -9,6 +9,7 @@ import { ContadorComponent } from './contador/contador.component';
 import { FormsModule } from '@angular/forms';
 import { HermanoComponent } from './hermano/hermano.component';
 import { EstiloHermanosDirective } from './estilo-hermanos.directive';
+import { MiPipePersonalizadoPipe } from './mi-pipe-personalizado.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EstiloHermanosDirective } from './estilo-hermanos.directive';
     HijoComponent,
     ContadorComponent,
     HermanoComponent,
-    EstiloHermanosDirective
+    EstiloHermanosDirective,
+    MiPipePersonalizadoPipe
   ],
   imports: [
     BrowserModule,
