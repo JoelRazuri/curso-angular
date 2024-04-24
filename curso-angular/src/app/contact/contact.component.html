@@ -23,6 +23,20 @@
             <div class="text-danger" *ngIf="hasErrors('name', 'minlength')">Nombre requiere mínimo 4 caracteres</div>
         </div>
         <div class="mb-3">
+            <label for="tipoDni" class="form-label">Tipo de DNI</label>
+            <select class="form-select" id="tipoDni" formControlName="tipoDni">
+                <option value="DNI">DNI</option>
+                <option value="Pasaporte">Pasaporte</option>
+                <option value="Cedula">Cedula</option>
+            </select>
+            
+        </div>
+        <div class="mb-3">
+            <label for="dni" class="form-label">{{ tipoDni }}</label>
+            <input [ngClass]="{'is-invalid': hasErrors('dni', 'required')}" type="text" class="form-control" id="name" formControlName="dni">
+            <div class="text-danger" *ngIf="hasErrors('dni', 'required')">{{ tipoDni }} requerido</div>
+        </div>
+        <div class="mb-3">
           <label for="email" class="form-label">Email </label>
           <input [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}" type="email" class="form-control" id="email" formControlName="email">
           <div class="text-danger" *ngIf="hasErrors('email', 'email')">Formato email inválido</div>

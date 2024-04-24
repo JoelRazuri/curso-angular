@@ -19,23 +19,30 @@ export class ContactComponent implements OnInit {
 
   // Formulario tipo reactivo
   formContact: FormGroup;
-  userActive: any = {
-    name: 'Joel',
-    apellido: 'Rázuri',
-    dni: '41558273'
-  };
+  
+  // Ejemplo para suscripción
+  tipoDni: string = 'DNI';
+
+  // Usuario de ejemplo para setear valores
+  // userActive: any = {
+  //   name: 'Joel',
+  //   apellido: 'Rázuri',
+  //   dni: '41558273'
+  // };
 
   constructor(private form: FormBuilder) {
     this.formContact = this.form.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
+      tipoDni: [''],
+      dni: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     })
   }
   // Tambien se puede incluir los Validators fuera del constructor, por si queremos que en alguna 
-  // parte de la app se muestre seteado o no. Eso va a depender de la logica de negocio 
-  ngOnInit(): void {
-    this.formContact.get('name')?.setValue(this.userActive.name);
-    this.formContact.get('name')?.disable();
+  // parte de la app se muestre seteado o no. Eso va a depender de la logica de negocio  
+  // ngOnInit(): void {
+    // this.formContact.get('name')?.setValue(this.userActive.name);
+    // this.formContact.get('name')?.disable();
     // Con esta lina de codigo podemos setear varios campos a la vez.
     // this.formContact.patchValue({
     //   name: this.userActive.name,
@@ -45,6 +52,14 @@ export class ContactComponent implements OnInit {
     // Con el metodo disable(), si o si hay que ir uno por uno :C
     // this.formContact.get('apellido')?.disable();
     // this.formContact.get('dni')?.disable();
+  // }
+
+
+  // Suscripciones
+  ngOnInit(): void {
+    this.formContact.get('tipoDni')?.valueChanges.subscribe(value => {
+      this.tipoDni = value;
+    })
   }
 
   enviar() {
