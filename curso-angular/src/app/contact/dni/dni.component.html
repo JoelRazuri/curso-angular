@@ -1,0 +1,7 @@
+<form [formGroup]="formDni">
+    <div class="mb-3">
+        <label for="dni" class="form-label">{{ tipoDni }}</label>
+        <input [ngClass]="{'is-invalid': hasErrors('dni', 'required')}" type="text" class="form-control" id="name" formControlName="dni">
+        <div class="text-danger" *ngIf="hasErrors('dni', 'required')">{{ tipoDni }} requerido</div>
+    </div>
+</form>
