@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
   // Formulario tipo plantilla
   // public user: any = {
   //   name: '',
@@ -34,7 +34,6 @@ export class ContactComponent implements OnInit {
     this.formContact = this.form.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
       tipoDni: [''],
-      dni: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
     })
   }
@@ -61,6 +60,11 @@ export class ContactComponent implements OnInit {
       this.tipoDni = value;
     })
   }
+
+  ngOnDestroy(): void {
+    console.log('Se destruyó el componente');
+  }
+
 
   enviar() {
     console.log(this.formContact);
