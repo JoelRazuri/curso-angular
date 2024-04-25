@@ -1,6 +1,6 @@
 <ng-container *ngIf="!loading">
     <h1>Detalle:</h1>
-    <p>Producto: {{ product?.name }}</p>
+    <p>Producto: {{ product?.title }}</p>
     <p>Precio: <span [ngStyle]="{'color': color}">{{ product?.price | currency }}</span></p>
     <p *ngIf="product?.description">Descripción: {{ product?.description }}</p>
 </ng-container>
